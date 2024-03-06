@@ -6,6 +6,7 @@
 
   auditok = pkgs.callPackage ./pkgs/auditok {};
   ffsubsync = pkgs.callPackage ./pkgs/ffsubsync {inherit auditok pysubs2;};
+  my-bookmarks-pl = pkgs.callPackage ./pkgs/my-bookmarks-pl {};
   neocities-deploy = pkgs.callPackage ./pkgs/neocities-deploy {};
   pysubs2 = pkgs.callPackage ./pkgs/pysubs2 {};
   subtitlecomposer = pkgs.callPackage ./pkgs/subtitlecomposer {};
