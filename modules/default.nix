@@ -3,4 +3,5 @@
   #
   # my-module = ./my-module;
   qemu-user-static = ./qemu-user-static.nix;
+  google-authenticator-singlesecret = ./google-authenticator-singlesecret;
 }
