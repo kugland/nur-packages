@@ -1,3 +1,8 @@
+# Format the Nix code in the repository.
+format:
+  just --unstable --fmt
+  nix-shell -p alejandra --run "alejandra ."
+
 update-qemu-user-static:
   #!/usr/bin/env nix-shell
   #!nix-shell -i bash -p jq -p skopeo -p nix-prefetch-docker
