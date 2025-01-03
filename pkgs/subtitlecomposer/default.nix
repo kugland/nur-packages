@@ -2,7 +2,7 @@
 , fetchFromGitLab
 , cmake
 , extra-cmake-modules
-, ffmpeg
+, ffmpeg_6
 , openal
 , stdenv
 , libsForQt5
@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [ cmake extra-cmake-modules libsForQt5.wrapQtAppsHook ];
-  buildInputs = [ ffmpeg openal ] ++ (with libsForQt5; [
+  buildInputs = [ ffmpeg_6 openal ] ++ (with libsForQt5; [
     kcodecs
     kconfig
     kconfigwidgets
