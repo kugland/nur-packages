@@ -12,9 +12,9 @@ buildRustPackage rec {
     owner = "kugland";
     repo = "neocities-deploy";
     rev = "v${version}";
-    hash = "sha256-Xy+YfXSb2ffIu4Ost5tKDXXAOzR+kkfR5kwqdlVLo0o=";
+    hash = "sha256-Ax1xmNyt+Gymk28p9lXh+CV17rWjMBKIZtc+nthic+8=";
   };
-  cargoHash = "sha256-G119UJ7b9nK4XiPtKSKcRPncpWBKRw9GRnJ1PjTAA2Q=";
+  cargoHash = "sha256-R6TTB+TXA44vp+7454fu9/5bscgNao0wuskdgpA2BwY=";
   meta = with lib; {
     description = "A command-line tool for deploying your Neocities site";
     homepage = "https://github.com/kugland/neocities-deploy";
