@@ -28,6 +28,6 @@ in
     description = "A command-line tool for deploying your Neocities site";
     homepage = "https://github.com/kugland/neocities-deploy";
     license = licenses.gpl3;
-    maintainers = [ ];
+    maintainers = [ lib.maintainers.kugland ];
   };
 }
