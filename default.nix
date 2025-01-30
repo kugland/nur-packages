@@ -6,7 +6,7 @@
       rev = "cc65b71af7eae5d015ff3c20a5f034c3d1fbac72";
       hash = "sha256-1lzgesEFjyhCs4sO0Gu0QMjJyAkhKm9m9y71gLufL0M=";
     })
-    { }
+    { inherit pkgs; }
 ,
 }: rec {
   # The `lib`, `modules`, and `overlays` names are special
