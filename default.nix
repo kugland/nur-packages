@@ -1,5 +1,5 @@
 { pkgs ? import <nixpkgs> { }
-, flakeLock ? pkgs.lib.importJSON ./flake.lock
+, flakeLock ? builtins.fromJSON (builtins.readFile ./flake.lock)
 , fenix ? import
     (pkgs.fetchFromGitHub (with flakeLock.nodes.fenix.locked; {
       inherit owner repo rev;
