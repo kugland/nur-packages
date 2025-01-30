@@ -1,10 +1,11 @@
 { pkgs ? import <nixpkgs> { }
-, flakeLock ? builtins.fromJSON (builtins.readFile ./flake.lock)
 , fenix ? import
-    (pkgs.fetchFromGitHub (with flakeLock.nodes.fenix.locked; {
-      inherit owner repo rev;
-      hash = narHash;
-    }))
+    (pkgs.fetchFromGitHub {
+      owner = "nix-community";
+      repo = "fenix";
+      rev = "cc65b71af7eae5d015ff3c20a5f034c3d1fbac72";
+      hash = "sha256-1lzgesEFjyhCs4sO0Gu0QMjJyAkhKm9m9y71gLufL0M=";
+    })
     { }
 ,
 }: rec {
