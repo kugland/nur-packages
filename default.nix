@@ -1,12 +1,18 @@
+let
+  inherit (builtins) fromJSON readFile;
+
+  getFlake = name:
+    with (fromJSON (readFile ./flake.lock)).nodes.${name}.locked; {
+      inherit rev;
+      outPath = fetchTarball {
+        url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
+        sha256 = narHash;
+      };
+    };
+in
+
 { pkgs ? import <nixpkgs> { }
-, fenix ? import
-    (pkgs.fetchFromGitHub {
-      owner = "nix-community";
-      repo = "fenix";
-      rev = "cc65b71af7eae5d015ff3c20a5f034c3d1fbac72";
-      hash = "sha256-1lzgesEFjyhCs4sO0Gu0QMjJyAkhKm9m9y71gLufL0M=";
-    })
-    { inherit pkgs; }
+, fenix ? import (getFlake "fenix") { inherit pkgs; }
 ,
 }: rec {
   # The `lib`, `modules`, and `overlays` names are special
