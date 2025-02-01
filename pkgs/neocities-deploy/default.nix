@@ -1,32 +1,25 @@
 { pkgs
 , lib
 , fetchFromGitHub
-, fenix
+, rustPlatform
+, buildRustPackage ? rustPlatform.buildRustPackage
 ,
 }:
-let
-  toolchain = fenix.minimal.toolchain;
-  buildRustPackage =
-    (pkgs.makeRustPlatform {
-      cargo = toolchain;
-      rustc = toolchain;
-    }).buildRustPackage;
-in
 buildRustPackage rec {
   pname = "neocities-deploy";
-  version = "0.1.14";
+  version = "0.1.15";
   src = fetchFromGitHub {
     owner = "kugland";
     repo = "neocities-deploy";
     rev = "v${version}";
-    hash = "sha256-sbVoFHEChwxeiIBf8rSnT5zOUEqblUTUWfFQ5SjEJv0=";
+    hash = "sha256-PkjgHXvFhTJ0AVRz6/hXkzo94tsIzgxHKuGNy3fDzIU=";
   };
-  cargoHash = "sha256-Boy48me+SzHWB+nMWFkhlRfonHs7+xAZ/Z7hBEL0lyI=";
+  cargoHash = "sha256-DPp48x8ufPho1+zZkj9KeHhaaZ2zF6XS4E4JIfc2uJg=";
   doCheck = false;
   meta = with lib; {
     description = "A command-line tool for deploying your Neocities site";
     homepage = "https://github.com/kugland/neocities-deploy";
     license = licenses.gpl3;
-    maintainers = [ lib.maintainers.kugland ];
+    maintainers = with lib.maintainers; [ kugland ];
   };
 }
