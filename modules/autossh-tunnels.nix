@@ -6,8 +6,8 @@
 with lib; let
   cfg = config.services.autosshTunnels;
 
-  mkTunnel = reverse: tunnel:
-    (if reverse then "-R " else "-L ")
+  mkTunnel = tunnel:
+    (if tunnel.reverse then "-R " else "-L ")
     + (
       if tunnel.localAddress != null
       then "${tunnel.localAddress}:"
@@ -134,7 +134,7 @@ in
               "-i ${session.secretKey}"
               "${session.user}@${session.host}"
             ]
-            ++ (map (mkTunnel session.reverse) session.tunnels));
+            ++ (map mkTunnel session.tunnels));
           }
         )
         (builtins.attrNames cfg.sessions);
