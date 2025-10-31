@@ -32,7 +32,7 @@ update-musescore:
     #! nix-shell -i bash -p gh
     x86_64_url="$(gh release -R musescore/MuseScore view $(gh release -R musescore/MuseScore list --json tagName,isLatest --jq 'map(select(.isLatest == true)) | .[] | .tagName') --json assets --jq '.assets | .[] | .url' | grep -- '-x86_64[.]AppImage$')"
     aarch64_url="$(gh release -R musescore/MuseScore view $(gh release -R musescore/MuseScore list --json tagName,isLatest --jq 'map(select(.isLatest == true)) | .[] | .tagName') --json assets --jq '.assets | .[] | .url' | grep -- '-aarch64[.]AppImage$')"
-    version="$(echo "$x86_64_url" | sed 's/.*\/MuseScore-\(.*\)-x86_64\.AppImage/\1/')"
+    version="$(echo "$x86_64_url" | sed 's/.*\/MuseScore-Studio-\(.*\)-x86_64\.AppImage/\1/')"
     x86_64_hash="$(nix hash convert --hash-algo sha256 --to sri $(nix-prefetch-url "$x86_64_url"))"
     aarch64_hash="$(nix hash convert --hash-algo sha256 --to sri $(nix-prefetch-url "$aarch64_url"))"
     sed -i -Ee '
