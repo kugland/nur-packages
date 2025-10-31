@@ -4,9 +4,9 @@
 }:
 let
   pname = "cursor";
-  version = "1.6.35";
-  url = "https://downloads.cursor.com/production/b753cece5c67c47cb5637199a5a5de2b7100c18f/linux/x64/Cursor-1.6.35-x86_64.AppImage";
-  hash = "sha256-62u8snx9nbJtsg7uROZNVzo3macrkTghTCep943e8+I=";
+  version = "https://cursor.com/download/stable/linux-x64";
+  url = "https://downloads.cursor.com/production/45fd70f3fe72037444ba35c9e51ce86a1977ac11/linux/x64/Cursor-2.0.34-x86_64.AppImage";
+  hash = "sha256-x51N2BttMkfKwH4/Uxn/ZNFVPZbaNdsZm8BFFIMmxBM=";
   src = pkgs.fetchurl { inherit url hash; };
   appimageContents = pkgs.appimageTools.extract { inherit pname version src; };
 in
