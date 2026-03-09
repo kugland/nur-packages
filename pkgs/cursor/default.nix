@@ -1,17 +1,17 @@
 { lib
 , stdenv
-, fetchurl
 , appimageTools
+, fetchurl
 ,
 }:
 let
   pname = "cursor";
-  version = "2.5";
+  version = "2.6.19";
   sources = {
-    x86_64.url = "https://api2.cursor.sh/updates/download/golden/linux-x64/${pname}/${version}";
-    x86_64.hash = "sha256-5dzRSqehpJDBFSFTn0W07H6fKho1oRW/oMEVPjfZaxo=";
-    aarch64.url = "https://api2.cursor.sh/updates/download/golden/linux-arm64/${pname}/${version}";
-    aarch64.hash = "sha256-0aGHUabQuYZZIuRz+O0etOi29cfQ7ihSZCSn4IHoiKo=";
+    x86_64.url = "https://downloads.cursor.com/production/224838f96445be37e3db643a163a817c15b3606c/linux/x64/Cursor-2.6.19-x86_64.AppImage";
+    x86_64.hash = "sha256-KPHcY7KhcWTpiFPvHUXmP57ePOW1ouANYVtFMaSzN3Y=";
+    aarch64.url = "https://downloads.cursor.com/production/224838f96445be37e3db643a163a817c15b3606c/linux/arm64/Cursor-2.6.19-aarch64.AppImage";
+    aarch64.hash = "sha256-oyWGiuMkfEgwVd5c28CWfPjZHK3agtfrWZ54/Bk4c6E=";
   };
   src = fetchurl (
     if stdenv.hostPlatform.isx86_64
@@ -41,7 +41,7 @@ appimageTools.wrapType2 {
     # Patch desktop file to use the correct executable
     sed -i 's|^Exec=/usr/share/cursor/cursor|Exec=cursor|' $out/share/applications/*.desktop
   '';
-  meta = with lib;{
+  meta = with lib; {
     description = "AI-first code editor built on VS Code";
     longDescription = ''
       Cursor is an AI-powered code editor that extends VS Code's functionality with advanced
@@ -53,7 +53,7 @@ appimageTools.wrapType2 {
     changelog = "https://github.com/getcursor/cursor/releases";
     license = licenses.unfree;
     platforms = [ "x86_64-linux" "aarch64-linux" ];
-    maintainers = with maintainers; [ kugland ];
+    maintainers = with maintainers; [ maintainers.kugland ];
     mainProgram = "cursor";
     sourceProvenance = [ sourceTypes.binaryNativeCode ];
   };
