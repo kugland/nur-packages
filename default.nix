@@ -11,7 +11,7 @@ rec {
   musescore = pkgs.callPackage ./pkgs/musescore { };
   my-bookmarks-pl = pkgs.callPackage ./pkgs/my-bookmarks-pl { };
   neocities-deploy = pkgs.callPackage ./pkgs/neocities-deploy { };
-  pd-else = pkgs.callPackage ./pkgs/pd-else { };
+  pd-else = pkgs.callPackage ./pkgs/pd-else { inherit puredata; };
   puredata = pkgs.callPackage ./pkgs/puredata { };
   puredata-with-plugins =
     plugins: pkgs.callPackage ./pkgs/puredata/wrapper.nix { inherit plugins puredata; };

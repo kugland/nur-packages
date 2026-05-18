@@ -14,13 +14,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "pd-else";
-  version = "1.0-rc13";
+  version = "1.0-rc14";
 
   src = fetchFromGitHub {
     owner = "porres";
     repo = "pd-else";
     tag = "v.${version}";
-    hash = "sha256-WebjdozcFup2xk3cS9LPTiA6m0l1sR6sj3hHlt6ScfU=";
+    hash = "sha256-F4pMBw/Ps11pPBfaIS9SNUoTls5TR0+s/PjQotKuHpQ=";
   };
 
   nativeBuildInputs = [
