@@ -1,4 +1,8 @@
-{ pkgs ? import <nixpkgs> { }, ... }: rec {
+{
+  pkgs ? import <nixpkgs> { },
+  ...
+}:
+rec {
   auditok = pkgs.callPackage ./pkgs/auditok { };
   bip39 = pkgs.callPackage ./pkgs/bip39 { };
   bop = pkgs.callPackage ./pkgs/bop { };
@@ -9,6 +13,7 @@
   neocities-deploy = pkgs.callPackage ./pkgs/neocities-deploy { };
   pd-else = pkgs.callPackage ./pkgs/pd-else { };
   puredata = pkgs.callPackage ./pkgs/puredata { };
-  puredata-with-plugins = plugins: pkgs.callPackage ./pkgs/puredata/wrapper.nix { inherit plugins puredata; };
+  puredata-with-plugins =
+    plugins: pkgs.callPackage ./pkgs/puredata/wrapper.nix { inherit plugins puredata; };
   pysubs2 = pkgs.callPackage ./pkgs/pysubs2 { };
 }
