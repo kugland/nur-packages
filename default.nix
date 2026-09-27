@@ -8,5 +8,7 @@
   my-bookmarks-pl = pkgs.callPackage ./pkgs/my-bookmarks-pl { };
   neocities-deploy = pkgs.callPackage ./pkgs/neocities-deploy { };
   pd-else = pkgs.callPackage ./pkgs/pd-else { };
+  puredata = pkgs.callPackage ./pkgs/puredata { };
+  puredata-with-plugins = plugins: pkgs.callPackage ./pkgs/puredata/wrapper.nix { inherit plugins puredata; };
   pysubs2 = pkgs.callPackage ./pkgs/pysubs2 { };
 }
